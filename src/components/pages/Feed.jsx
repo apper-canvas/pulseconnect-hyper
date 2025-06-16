@@ -207,10 +207,11 @@ return (
                     >
                       Follow
                     </button>
-</div>
+                  </div>
                 ))}
               </div>
-              
+</div>
+
               <button className="w-full mt-3 text-xs text-primary hover:text-accent font-medium transition-colors py-1">
                 See all suggestions
               </button>
