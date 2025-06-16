@@ -18,7 +18,7 @@ const Layout = () => {
   }, []);
 
 return (
-    <div className="min-h-screen bg-surface-50">
+    <div className="min-h-screen bg-gradient-soft">
       {/* Header */}
       <Header />
       
