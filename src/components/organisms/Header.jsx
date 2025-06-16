@@ -99,16 +99,16 @@ return (
               </button>
 
               {/* Profile Dropdown */}
-              {showProfileMenu && (
+{showProfileMenu && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95, y: -10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                  className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-surface-200 py-2 z-50"
+                  className="absolute right-0 mt-2 w-52 bg-white rounded-lg shadow-lg border border-surface-200 py-2 z-50"
                 >
                   <NavLink
                     to="/profile"
-                    className="block px-4 py-2 text-sm text-surface-700 hover:bg-surface-50"
+                    className="block px-4 py-2 text-sm text-surface-700 hover:bg-surface-50 whitespace-nowrap"
                     onClick={() => setShowProfileMenu(false)}
                   >
                     <div className="flex items-center space-x-2">
@@ -116,14 +116,14 @@ return (
                       <span>Profile</span>
                     </div>
                   </NavLink>
-                  <button className="block w-full text-left px-4 py-2 text-sm text-surface-700 hover:bg-surface-50">
+                  <button className="block w-full text-left px-4 py-2 text-sm text-surface-700 hover:bg-surface-50 whitespace-nowrap">
                     <div className="flex items-center space-x-2">
                       <ApperIcon name="Settings" size={16} />
                       <span>Settings</span>
                     </div>
                   </button>
                   <hr className="my-2 border-surface-200" />
-                  <button className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                  <button className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 whitespace-nowrap">
                     <div className="flex items-center space-x-2">
                       <ApperIcon name="LogOut" size={16} />
                       <span>Sign Out</span>
