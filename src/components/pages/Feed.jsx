@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toast } from 'react-toastify';
-import PostComposer from '@/components/organisms/PostComposer';
-import StoriesCarousel from '@/components/organisms/StoriesCarousel';
-import Sidebar from '@/components/organisms/Sidebar';
-import PostCard from '@/components/molecules/PostCard';
-import Avatar from '@/components/atoms/Avatar';
-import ApperIcon from '@/components/ApperIcon';
-import { postService, userService } from '@/services';
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { toast } from "react-toastify";
+import PostComposer from "@/components/organisms/PostComposer";
+import StoriesCarousel from "@/components/organisms/StoriesCarousel";
+import Sidebar from "@/components/organisms/Sidebar";
+import PostCard from "@/components/molecules/PostCard";
+import Avatar from "@/components/atoms/Avatar";
+import ApperIcon from "@/components/ApperIcon";
+import { postService, userService } from "@/services";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -123,25 +123,23 @@ const handleFollowUser = async (userId) => {
     }
   };
 
-  return (
+return (
     <div className="min-h-screen bg-surface-50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-[280px_1fr_280px] gap-6 p-4 lg:p-6">
+        <div className="grid grid-cols-1 xl:grid-cols-[300px_1fr_300px] gap-4 p-4 lg:p-6">
           {/* Left Sidebar - Quick Stats + Trending */}
           <Sidebar />
-          
-          {/* Main Content - Stories + Feed */}
+{/* Main Content - Stories + Feed */}
           <main className="flex-1 min-h-screen">
-            <div className="max-w-feed mx-auto pb-20 md:pb-6">
-              <div className="space-y-6">
+            <div className="max-w-2xl mx-auto pb-20 md:pb-6">
+              <div className="space-y-4">
                 {/* Stories */}
                 <StoriesCarousel />
-                
                 {/* Post Composer */}
                 <PostComposer onPostCreated={handlePostCreated} />
                 
-                {/* Feed Content */}
-                <div className="space-y-6">
+{/* Feed Content */}
+                <div className="space-y-4">
                   {loading && renderSkeletonLoader()}
                   
                   {error && renderErrorState()}
@@ -175,27 +173,27 @@ const handleFollowUser = async (userId) => {
             </div>
           </main>
 
-          {/* Right Column - Suggested Users + Active Now */}
-          <aside className="hidden xl:block w-280 space-y-6">
+{/* Right Column - Suggested Users + Active Now */}
+          <aside className="hidden xl:block w-300 space-y-4">
             {/* Suggested Users */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
+              className="bg-white rounded-xl p-4 shadow-sm border border-surface-200"
             >
-              <div className="flex items-center space-x-2 mb-4">
-                <ApperIcon name="Users" size={20} className="text-primary" />
-                <h3 className="font-semibold text-surface-900">Suggested for you</h3>
+<div className="flex items-center space-x-2 mb-3">
+                <ApperIcon name="Users" size={18} className="text-primary" />
+                <h3 className="font-medium text-surface-900 text-sm">Suggested for you</h3>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {suggestedUsers.map((user) => (
                   <div key={user.Id} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <Avatar src={user.avatar} alt={user.displayName} size="small" />
+                    <div className="flex items-center space-x-2">
+<Avatar src={user.avatar} alt={user.displayName} size="small" />
                       <div>
-                        <p className="text-sm font-medium text-surface-900">
+                        <p className="text-xs font-medium text-surface-900">
                           {user.displayName}
                         </p>
                         <p className="text-xs text-surface-500">
@@ -203,17 +201,18 @@ const handleFollowUser = async (userId) => {
                         </p>
                       </div>
                     </div>
-                    <button 
+<button 
                       onClick={() => handleFollowUser(user.Id)}
-                      className="text-xs font-medium text-primary hover:text-accent transition-colors"
+                      className="text-xs font-medium text-primary hover:text-accent transition-colors px-2 py-1 rounded-md hover:bg-primary/5"
                     >
                       Follow
                     </button>
                   </div>
                 ))}
               </div>
+</div>
 
-              <button className="w-full mt-4 text-sm text-primary hover:text-accent font-medium transition-colors">
+              <button className="w-full mt-3 text-xs text-primary hover:text-accent font-medium transition-colors py-1">
                 See all suggestions
               </button>
             </motion.div>
@@ -223,22 +222,22 @@ const handleFollowUser = async (userId) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
+              className="bg-white rounded-xl p-4 shadow-sm border border-surface-200"
             >
-              <div className="flex items-center space-x-2 mb-4">
-                <ApperIcon name="Circle" size={20} className="text-green-500" />
-                <h3 className="font-semibold text-surface-900">Active now</h3>
+              <div className="flex items-center space-x-2 mb-3">
+                <ApperIcon name="Circle" size={18} className="text-green-500" />
+                <h3 className="font-medium text-surface-900 text-sm">Active now</h3>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {activeUsers.map((user) => (
-                  <div key={user.Id} className="flex items-center space-x-3">
+                  <div key={user.Id} className="flex items-center space-x-2">
                     <div className="relative">
                       <Avatar src={user.avatar} alt={user.displayName} size="small" />
                       <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-surface-900">
+                      <p className="text-xs font-medium text-surface-900">
                         {user.displayName}
                       </p>
                       <p className="text-xs text-surface-500">
