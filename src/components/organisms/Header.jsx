@@ -24,8 +24,8 @@ const Header = () => {
     routes.notifications
   ];
 
-  return (
-    <header className="flex-shrink-0 h-16 bg-white border-b border-surface-200 z-40">
+return (
+    <header className="sticky top-0 z-50 h-16 bg-white border-b border-surface-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
@@ -40,7 +40,7 @@ const Header = () => {
             </NavLink>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-1">
               {navigationItems.map((item) => (
                 <NavLink
                   key={item.id}
@@ -63,7 +63,7 @@ const Header = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="flex-1 max-w-md mx-8 hidden sm:block">
+          <div className="flex-1 max-w-lg mx-8 hidden md:block">
             <SearchBar />
           </div>
 

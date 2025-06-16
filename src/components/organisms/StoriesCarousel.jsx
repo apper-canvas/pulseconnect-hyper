@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
-import StoryItem from '@/components/molecules/StoryItem';
-import ApperIcon from '@/components/ApperIcon';
-import { storyService } from '@/services';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import StoryItem from "@/components/molecules/StoryItem";
+import ApperIcon from "@/components/ApperIcon";
+import { storyService } from "@/services";
 
 const StoriesCarousel = () => {
   const [stories, setStories] = useState([]);
@@ -49,9 +49,9 @@ const StoriesCarousel = () => {
     }
   };
 
-  if (loading) {
+if (loading) {
     return (
-      <div className="bg-white rounded-xl border border-surface-200 shadow-sm p-4">
+      <div className="w-full bg-white rounded-xl border border-surface-200 shadow-sm p-4">
         <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="flex flex-col items-center space-y-2 min-w-0">
@@ -73,28 +73,36 @@ const StoriesCarousel = () => {
     );
   }
 
-  return (
+return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-xl border border-surface-200 shadow-sm p-4"
-    >
+      initial={{
+        opacity: 0,
+        y: 20
+      }}
+      animate={{
+        opacity: 1,
+        y: 0
+      }}
+      className="w-full bg-white rounded-xl border border-surface-200 shadow-sm p-4">
       <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
         {/* Add Story Button */}
         <StoryItem isAddStory onClick={handleAddStory} />
-        
         {/* Stories */}
         {stories.map((story, index) => (
           <motion.div
             key={story.Id}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <StoryItem 
-              story={story} 
-              onClick={() => handleStoryClick(story)}
-            />
+            initial={{
+              opacity: 0,
+              x: 20
+            }}
+            animate={{
+              opacity: 1,
+              x: 0
+            }}
+            transition={{
+              delay: index * 0.1
+            }}>
+            <StoryItem story={story} onClick={() => handleStoryClick(story)} />
           </motion.div>
         ))}
       </div>

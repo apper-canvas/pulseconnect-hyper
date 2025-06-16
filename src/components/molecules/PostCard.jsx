@@ -67,12 +67,12 @@ const PostCard = ({ post, onUpdate }) => {
     }
   };
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-xl border border-surface-200 shadow-sm hover:shadow-md transition-shadow duration-200"
+      className="w-full bg-white rounded-xl border border-surface-200 shadow-sm hover:shadow-md transition-shadow duration-200"
     >
       {/* Post Header */}
       <div className="p-4 flex items-center space-x-3">

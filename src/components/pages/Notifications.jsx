@@ -184,9 +184,9 @@ const Notifications = () => {
     );
   }
 
-  return (
+return (
     <div className="min-h-screen bg-surface-50">
-      <div className="max-w-2xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
+      <div className="max-w-4xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-surface-900">Notifications</h1>
@@ -202,33 +202,37 @@ const Notifications = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex space-x-1 bg-surface-100 rounded-lg p-1 mb-6">
-          {filters.map((filterOption) => (
-            <button
-              key={filterOption.id}
-              onClick={() => setFilter(filterOption.id)}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                filter === filterOption.id
-                  ? 'bg-white text-primary shadow-sm'
-                  : 'text-surface-600 hover:text-surface-900'
-              }`}
-            >
-              <span>{filterOption.label}</span>
-              {filterOption.count > 0 && (
-                <span className={`px-2 py-0.5 rounded-full text-xs ${
-                  filter === filterOption.id
-                    ? 'bg-primary/10 text-primary'
-                    : 'bg-surface-300 text-surface-600'
-                }`}>
-                  {filterOption.count}
-                </span>
-              )}
-            </button>
-          ))}
+        <div className="mb-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="flex space-x-1 bg-surface-100 rounded-lg p-1">
+              {filters.map((filterOption) => (
+                <button
+                  key={filterOption.id}
+                  onClick={() => setFilter(filterOption.id)}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                    filter === filterOption.id
+                      ? 'bg-white text-primary shadow-sm'
+                      : 'text-surface-600 hover:text-surface-900'
+                  }`}
+                >
+                  <span>{filterOption.label}</span>
+                  {filterOption.count > 0 && (
+                    <span className={`px-2 py-0.5 rounded-full text-xs ${
+                      filter === filterOption.id
+                        ? 'bg-primary/10 text-primary'
+                        : 'bg-surface-300 text-surface-600'
+                    }`}>
+                      {filterOption.count}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Notifications List */}
-        <div className="space-y-4">
+        <div className="max-w-content mx-auto space-y-4">
           <AnimatePresence mode="popLayout">
             {filteredNotifications.map((notification) => (
               <motion.div

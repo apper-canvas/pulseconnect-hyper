@@ -28,9 +28,27 @@ export default {
         display: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui'],
         heading: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui']
       },
-      gridTemplateColumns: {
+gridTemplateColumns: {
         'feed': '280px 1fr',
-        'feed-mobile': '1fr'
+        'feed-mobile': '1fr',
+        'layout': 'minmax(0, 1fr)',
+        'sidebar-main': '280px minmax(0, 1fr)',
+        'responsive': 'repeat(auto-fit, minmax(300px, 1fr))'
+      },
+      spacing: {
+        '18': '4.5rem',
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
+        '280': '280px'
+      },
+      maxWidth: {
+        'container': '1280px',
+        'content': '800px',
+        'feed': '600px'
+      },
+      screens: {
+        'xs': '475px'
       }
     },
   },

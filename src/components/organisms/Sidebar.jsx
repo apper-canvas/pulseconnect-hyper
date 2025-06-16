@@ -45,8 +45,8 @@ const Sidebar = () => {
     );
   }
 
-  return (
-    <aside className="hidden lg:block w-280 bg-surface-50 border-r border-surface-200 overflow-y-auto">
+return (
+    <aside className="hidden lg:block w-280 bg-surface-50 border-r border-surface-200 overflow-y-auto min-h-screen">
       <div className="p-4 space-y-6">
         {/* User Stats Card */}
         {currentUser && (

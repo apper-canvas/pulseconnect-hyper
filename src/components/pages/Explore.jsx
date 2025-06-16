@@ -243,36 +243,38 @@ const Explore = () => {
     }
   };
 
-  return (
+return (
     <div className="min-h-screen bg-surface-50">
-      <div className="max-w-6xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
+      <div className="max-w-7xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-surface-900 mb-4">
+          <h1 className="text-2xl font-bold text-surface-900 mb-6">
             Explore
           </h1>
-          <div className="max-w-md">
+          <div className="max-w-2xl mx-auto">
             <SearchBar placeholder="Search posts, people, and hashtags..." />
           </div>
         </div>
 
         {/* Tabs */}
         <div className="mb-8">
-          <div className="flex space-x-1 bg-surface-100 rounded-lg p-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? 'bg-white text-primary shadow-sm'
-                    : 'text-surface-600 hover:text-surface-900'
-                }`}
-              >
-                <ApperIcon name={tab.icon} size={16} />
-                <span>{tab.label}</span>
-              </button>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <div className="flex space-x-1 bg-surface-100 rounded-lg p-1">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                    activeTab === tab.id
+                      ? 'bg-white text-primary shadow-sm'
+                      : 'text-surface-600 hover:text-surface-900'
+                  }`}
+                >
+                  <ApperIcon name={tab.icon} size={16} />
+                  <span>{tab.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -282,6 +284,7 @@ const Explore = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
+          className="max-w-6xl mx-auto"
         >
           {loading ? renderSkeletonLoader() : renderTabContent()}
         </motion.div>

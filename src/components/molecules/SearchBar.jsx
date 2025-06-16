@@ -76,8 +76,8 @@ const SearchBar = ({ placeholder = "Search users and hashtags...", className = '
     setIsOpen(false);
   };
 
-  return (
-    <div ref={searchRef} className={`relative ${className}`}>
+return (
+    <div ref={searchRef} className={`relative w-full ${className}`}>
       <div className="relative">
         <Input
           value={query}
@@ -85,7 +85,7 @@ const SearchBar = ({ placeholder = "Search users and hashtags...", className = '
           placeholder={placeholder}
           icon="Search"
           iconPosition="left"
-          className="pr-10"
+          className="pr-10 w-full"
           onFocus={() => query && setIsOpen(true)}
         />
         

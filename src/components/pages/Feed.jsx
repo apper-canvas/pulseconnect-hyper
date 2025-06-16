@@ -103,7 +103,7 @@ const Feed = () => {
     </motion.div>
   );
 
-  return (
+return (
     <div className="min-h-screen bg-surface-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
@@ -111,44 +111,46 @@ const Feed = () => {
           <Sidebar />
           
           {/* Main Content */}
-          <main className="flex-1 overflow-y-auto p-4 lg:p-6 pb-20 md:pb-6">
-            <div className="max-w-2xl mx-auto space-y-6">
-              {/* Stories */}
-              <StoriesCarousel />
-              
-              {/* Post Composer */}
-              <PostComposer onPostCreated={handlePostCreated} />
-              
-              {/* Feed Content */}
+          <main className="flex-1 min-h-screen">
+            <div className="max-w-feed mx-auto p-4 lg:p-6 pb-20 md:pb-6">
               <div className="space-y-6">
-                {loading && renderSkeletonLoader()}
+                {/* Stories */}
+                <StoriesCarousel />
                 
-                {error && renderErrorState()}
+                {/* Post Composer */}
+                <PostComposer onPostCreated={handlePostCreated} />
                 
-                {!loading && !error && posts.length === 0 && renderEmptyState()}
-                
-                {!loading && !error && posts.length > 0 && (
-                  <AnimatePresence mode="popLayout">
-                    {posts.map((post, index) => (
-                      <motion.div
-                        key={post.Id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ 
-                          duration: 0.3,
-                          delay: index * 0.1 
-                        }}
-                        layout
-                      >
-                        <PostCard 
-                          post={post} 
-                          onUpdate={handlePostUpdate}
-                        />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                )}
+                {/* Feed Content */}
+                <div className="space-y-6">
+                  {loading && renderSkeletonLoader()}
+                  
+                  {error && renderErrorState()}
+                  
+                  {!loading && !error && posts.length === 0 && renderEmptyState()}
+                  
+                  {!loading && !error && posts.length > 0 && (
+                    <AnimatePresence mode="popLayout">
+                      {posts.map((post, index) => (
+                        <motion.div
+                          key={post.Id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.95 }}
+                          transition={{ 
+                            duration: 0.3,
+                            delay: index * 0.1 
+                          }}
+                          layout
+                        >
+                          <PostCard 
+                            post={post} 
+                            onUpdate={handlePostUpdate}
+                          />
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  )}
+                </div>
               </div>
             </div>
           </main>

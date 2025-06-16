@@ -17,15 +17,17 @@ const Layout = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  return (
-    <div className="h-screen flex flex-col overflow-hidden bg-white">
+return (
+    <div className="min-h-screen bg-surface-50">
       {/* Header */}
       <Header />
       
-      {/* Main content */}
-      <div className="flex-1 overflow-hidden">
-        <main className="h-full overflow-y-auto">
-          <Outlet />
+      {/* Main content container */}
+      <div className="flex-1">
+        <main className="min-h-screen">
+          <div className="w-full">
+            <Outlet />
+          </div>
         </main>
       </div>
       

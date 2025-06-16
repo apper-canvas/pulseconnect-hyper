@@ -223,16 +223,16 @@ const Profile = () => {
     );
   }
 
-  return (
+return (
     <div className="min-h-screen bg-surface-50">
-      <div className="max-w-4xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
+      <div className="max-w-6xl mx-auto p-4 lg:p-6 pb-20 md:pb-6">
         {/* Profile Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-xl border border-surface-200 shadow-sm p-6 mb-6"
+          className="max-w-4xl mx-auto bg-white rounded-xl border border-surface-200 shadow-sm p-6 mb-8"
         >
-          <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
             <Avatar
               src={user.avatar}
               alt={user.displayName}
@@ -242,76 +242,78 @@ const Profile = () => {
             
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
-                <h1 className="text-2xl font-bold text-surface-900">
+                <h1 className="text-3xl font-bold text-surface-900">
                   {user.displayName}
                 </h1>
                 {user.verified && (
-                  <ApperIcon name="BadgeCheck" size={20} className="text-primary" />
+                  <ApperIcon name="BadgeCheck" size={24} className="text-primary" />
                 )}
               </div>
               
-              <p className="text-surface-600 mb-1">@{user.username}</p>
+              <p className="text-surface-600 mb-4 text-lg">@{user.username}</p>
               
               {user.bio && (
-                <p className="text-surface-700 mb-4 leading-relaxed">
+                <p className="text-surface-700 mb-6 leading-relaxed max-w-2xl">
                   {user.bio}
                 </p>
               )}
 
-              <div className="flex items-center space-x-8 mb-4">
+              <div className="flex items-center space-x-12 mb-6">
                 <div className="text-center">
-                  <p className="text-xl font-bold text-surface-900">{user.postsCount}</p>
+                  <p className="text-2xl font-bold text-surface-900">{user.postsCount}</p>
                   <p className="text-sm text-surface-500 font-medium">Posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-xl font-bold text-surface-900">{user.followers}</p>
+                  <p className="text-2xl font-bold text-surface-900">{user.followers}</p>
                   <p className="text-sm text-surface-500 font-medium">Followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-xl font-bold text-surface-900">{user.following}</p>
+                  <p className="text-2xl font-bold text-surface-900">{user.following}</p>
                   <p className="text-sm text-surface-500 font-medium">Following</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3">
-                <Button variant="primary" size="small" icon="Edit">
+              <div className="flex items-center space-x-4">
+                <Button variant="primary" size="medium" icon="Edit">
                   Edit Profile
                 </Button>
-                <Button variant="secondary" size="small" icon="Settings">
+                <Button variant="secondary" size="medium" icon="Settings">
                   Settings
                 </Button>
-                <Button variant="ghost" size="small" icon="Share" />
+                <Button variant="ghost" size="medium" icon="Share" />
               </div>
             </div>
           </div>
         </motion.div>
 
         {/* Profile Tabs */}
-        <div className="mb-6">
-          <div className="flex space-x-1 bg-surface-100 rounded-lg p-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                  activeTab === tab.id
-                    ? 'bg-white text-primary shadow-sm'
-                    : 'text-surface-600 hover:text-surface-900'
-                }`}
-              >
-                <ApperIcon name={tab.icon} size={16} />
-                <span>{tab.label}</span>
-                {tab.count > 0 && (
-                  <span className={`px-2 py-0.5 rounded-full text-xs ${
+        <div className="mb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex space-x-1 bg-surface-100 rounded-lg p-1">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                     activeTab === tab.id
-                      ? 'bg-primary/10 text-primary'
-                      : 'bg-surface-300 text-surface-600'
-                  }`}>
-                    {tab.count}
-                  </span>
-                )}
-              </button>
-            ))}
+                      ? 'bg-white text-primary shadow-sm'
+                      : 'text-surface-600 hover:text-surface-900'
+                  }`}
+                >
+                  <ApperIcon name={tab.icon} size={16} />
+                  <span>{tab.label}</span>
+                  {tab.count > 0 && (
+                    <span className={`px-2 py-0.5 rounded-full text-xs ${
+                      activeTab === tab.id
+                        ? 'bg-primary/10 text-primary'
+                        : 'bg-surface-300 text-surface-600'
+                    }`}>
+                      {tab.count}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -321,6 +323,7 @@ const Profile = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
+          className="max-w-5xl mx-auto"
         >
           {renderTabContent()}
         </motion.div>

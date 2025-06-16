@@ -4,9 +4,9 @@ import Layout from './Layout';
 import { routeArray } from './config/routes';
 
 function App() {
-  return (
+return (
     <BrowserRouter>
-      <div className="h-screen flex flex-col overflow-hidden bg-white">
+      <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/feed" replace />} />
