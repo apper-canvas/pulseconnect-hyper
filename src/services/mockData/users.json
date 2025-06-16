@@ -1,0 +1,57 @@
+[
+  {
+    "Id": 1,
+    "username": "sarah_designer",
+    "displayName": "Sarah Wilson",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    "followers": 2847,
+    "following": 892,
+    "postsCount": 156,
+    "verified": true,
+    "bio": "UI/UX Designer at TechCorp | Creating beautiful digital experiences ✨"
+  },
+  {
+    "Id": 2,
+    "username": "alex_photographer",
+    "displayName": "Alex Chen",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    "followers": 5123,
+    "following": 654,
+    "postsCount": 289,
+    "verified": false,
+    "bio": "📸 Travel photographer | Capturing moments around the world"
+  },
+  {
+    "Id": 3,
+    "username": "emma_traveler",
+    "displayName": "Emma Rodriguez",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    "followers": 1928,
+    "following": 1456,
+    "postsCount": 234,
+    "verified": false,
+    "bio": "✈️ Digital nomad | Currently in Bali | #Travel #Photography"
+  },
+  {
+    "Id": 4,
+    "username": "mike_developer",
+    "displayName": "Mike Thompson",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    "followers": 3456,
+    "following": 789,
+    "postsCount": 178,
+    "verified": true,
+    "bio": "💻 Full-stack developer | Building the future with code"
+  },
+  {
+    "Id": 5,
+    "username": "current_user",
+    "displayName": "You",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop&crop=face",
+    "followers": 428,
+    "following": 312,
+    "postsCount": 67,
+    "verified": false,
+    "bio": "Living my best life 🌟 | Coffee enthusiast ☕ | Adventure seeker"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "Id": 1,
+    "authorId": 1,
+    "content": "Just finished designing a new mobile app interface! The clean minimalist approach really helps users focus on what matters most. What do you think about purple accent colors in UI design? 💜",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
+      }
+    ],
+    "location": "San Francisco, CA",
+    "likes": 324,
+    "comments": 28,
+    "shares": 12,
+    "timestamp": "2024-01-20T14:30:00Z",
+    "hashtags": ["#UI", "#Design", "#TechTuesday", "#Mobile"],
+    "liked": false,
+    "bookmarked": false
+  },
+  {
+    "Id": 2,
+    "authorId": 2,
+    "content": "Golden hour magic in Santorini! Sometimes the best shots happen when you least expect them. This moment reminded me why I fell in love with photography in the first place. 📸✨",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop"
+      }
+    ],
+    "location": "Santorini, Greece",
+    "likes": 892,
+    "comments": 67,
+    "shares": 45,
+    "timestamp": "2024-01-20T10:15:00Z",
+    "hashtags": ["#Photography", "#Travel", "#Santorini", "#GoldenHour"],
+    "liked": true,
+    "bookmarked": true
+  },
+  {
+    "Id": 3,
+    "authorId": 3,
+    "content": "Working from this incredible coworking space in Bali today! The view of the rice terraces is absolutely breathtaking. Remote work has its perks! 🌾💻",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&h=400&fit=crop"
+      }
+    ],
+    "location": "Ubud, Bali",
+    "likes": 456,
+    "comments": 34,
+    "shares": 23,
+    "timestamp": "2024-01-20T08:45:00Z",
+    "hashtags": ["#Travel", "#RemoteWork", "#Bali", "#DigitalNomad"],
+    "liked": false,
+    "bookmarked": false
+  },
+  {
+    "Id": 4,
+    "authorId": 4,
+    "content": "Exciting announcement! 🚀 Just launched a new open-source React component library that makes building accessible UIs a breeze. Check it out on GitHub and let me know what you think!",
+    "media": [],
+    "location": "Austin, TX",
+    "likes": 678,
+    "comments": 89,
+    "shares": 156,
+    "timestamp": "2024-01-19T20:30:00Z",
+    "hashtags": ["#React", "#OpenSource", "#TechTuesday", "#Development"],
+    "liked": true,
+    "bookmarked": true
+  },
+  {
+    "Id": 5,
+    "authorId": 1,
+    "content": "Coffee shop vibes and design inspiration ☕ Working on some exciting new projects that I can't wait to share with you all. Stay tuned!",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&h=400&fit=crop"
+      }
+    ],
+    "location": "Portland, OR",
+    "likes": 234,
+    "comments": 18,
+    "shares": 8,
+    "timestamp": "2024-01-19T16:20:00Z",
+    "hashtags": ["#Design", "#Coffee", "#Inspiration", "#Creative"],
+    "liked": false,
+    "bookmarked": false
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "userId": 1,
+    "media": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=600&fit=crop",
+    "timestamp": "2024-01-20T12:00:00Z",
+    "viewed": false,
+    "type": "image"
+  },
+  {
+    "Id": 2,
+    "userId": 2,
+    "media": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=600&fit=crop",
+    "timestamp": "2024-01-20T10:30:00Z",
+    "viewed": true,
+    "type": "image"
+  },
+  {
+    "Id": 3,
+    "userId": 3,
+    "media": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=600&fit=crop",
+    "timestamp": "2024-01-20T09:15:00Z",
+    "viewed": false,
+    "type": "image"
+  },
+  {
+    "Id": 4,
+    "userId": 4,
+    "media": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=600&fit=crop",
+    "timestamp": "2024-01-20T08:45:00Z",
+    "viewed": true,
+    "type": "image"
+  }
+]
