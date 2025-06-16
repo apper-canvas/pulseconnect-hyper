@@ -5,7 +5,7 @@ import TrendingHashtag from '@/components/molecules/TrendingHashtag';
 import ApperIcon from '@/components/ApperIcon';
 import { userService, postService } from '@/services';
 
-const Sidebar = ({ showUserStats = true, showTrending = true, showSuggested = true }) => {
+const Sidebar = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [trendingHashtags, setTrendingHashtags] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -46,60 +46,60 @@ const Sidebar = ({ showUserStats = true, showTrending = true, showSuggested = tr
   }
 
 return (
-    <div className="space-y-6">
-      {/* User Stats Card */}
-      {showUserStats && currentUser && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-card rounded-2xl p-6 shadow-sm border border-surface-100 backdrop-blur-xs"
-        >
-          <div className="flex items-center space-x-4 mb-4">
-            <Avatar
-              src={currentUser.avatar}
-              alt={currentUser.displayName}
-              size="large"
-            />
-            <div>
-              <h3 className="font-semibold text-surface-900">
-                {currentUser.displayName}
-              </h3>
-              <p className="text-surface-500 text-sm">
-                @{currentUser.username}
-              </p>
+    <aside className="hidden lg:block w-280 bg-surface-50 border-r border-surface-200 overflow-y-auto min-h-screen">
+      <div className="p-4 space-y-6">
+        {/* User Stats Card */}
+        {currentUser && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
+          >
+            <div className="flex items-center space-x-4 mb-4">
+              <Avatar
+                src={currentUser.avatar}
+                alt={currentUser.displayName}
+                size="large"
+              />
+              <div>
+                <h3 className="font-semibold text-surface-900">
+                  {currentUser.displayName}
+                </h3>
+                <p className="text-surface-500 text-sm">
+                  @{currentUser.username}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div>
-              <p className="text-xl font-bold text-surface-900">
-                {currentUser.postsCount}
-              </p>
-              <p className="text-xs text-surface-500 font-medium">Posts</p>
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <p className="text-xl font-bold text-surface-900">
+                  {currentUser.postsCount}
+                </p>
+                <p className="text-xs text-surface-500 font-medium">Posts</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-surface-900">
+                  {currentUser.followers}
+                </p>
+                <p className="text-xs text-surface-500 font-medium">Followers</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-surface-900">
+                  {currentUser.following}
+                </p>
+                <p className="text-xs text-surface-500 font-medium">Following</p>
+              </div>
             </div>
-            <div>
-              <p className="text-xl font-bold text-surface-900">
-                {currentUser.followers}
-              </p>
-              <p className="text-xs text-surface-500 font-medium">Followers</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold text-surface-900">
-                {currentUser.following}
-              </p>
-              <p className="text-xs text-surface-500 font-medium">Following</p>
-            </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
 
-      {/* Trending Hashtags */}
-      {showTrending && (
+        {/* Trending Hashtags */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-gradient-card rounded-2xl p-6 shadow-sm border border-surface-100 backdrop-blur-xs"
+          className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
         >
           <div className="flex items-center space-x-2 mb-4">
             <ApperIcon name="TrendingUp" size={20} className="text-primary" />
@@ -122,15 +122,13 @@ return (
             Show more
           </button>
         </motion.div>
-      )}
 
-      {/* Suggested Users */}
-      {showSuggested && (
+        {/* Suggested Users */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-gradient-card rounded-2xl p-6 shadow-sm border border-surface-100 backdrop-blur-xs"
+          className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
         >
           <div className="flex items-center space-x-2 mb-4">
             <ApperIcon name="Users" size={20} className="text-primary" />
@@ -155,19 +153,15 @@ return (
                     </p>
                   </div>
                 </div>
-                <button className="text-xs font-medium text-primary hover:text-accent transition-colors">
+                <button className="text-xs font-medium text-primary hover:text-accent">
                   Follow
                 </button>
               </div>
             ))}
           </div>
-
-          <button className="w-full mt-4 text-sm text-primary hover:text-accent font-medium transition-colors">
-            Show more
-          </button>
         </motion.div>
-      )}
-    </div>
+      </div>
+    </aside>
   );
 };
 

@@ -31,8 +31,6 @@ export default {
 gridTemplateColumns: {
         'feed': '280px 1fr',
         'feed-mobile': '1fr',
-        'feed-3col': '280px 1fr 320px',
-        'feed-3col-lg': '300px 1fr 340px',
         'layout': 'minmax(0, 1fr)',
         'sidebar-main': '280px minmax(0, 1fr)',
         'responsive': 'repeat(auto-fit, minmax(300px, 1fr))'
@@ -49,16 +47,8 @@ gridTemplateColumns: {
         'content': '800px',
         'feed': '600px'
       },
-screens: {
+      screens: {
         'xs': '475px'
-      },
-      backgroundImage: {
-        'gradient-soft': 'linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%)',
-        'gradient-card': 'linear-gradient(135deg, #ffffff 0%, #fefefe 100%)',
-        'gradient-divider': 'linear-gradient(90deg, transparent 0%, #e5e7eb 50%, transparent 100%)'
-      },
-      backdropBlur: {
-        'xs': '2px'
       }
     },
   },
