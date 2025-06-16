@@ -62,8 +62,8 @@ return (
             </nav>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-lg mx-8 hidden md:block">
+{/* Search Bar */}
+          <div className="flex-1 mx-4 hidden md:block">
             <SearchBar />
           </div>
 
@@ -76,24 +76,6 @@ return (
               icon="Search"
               className="sm:hidden"
             />
-
-            {/* Notifications */}
-            <Button
-              variant="ghost"
-              size="small"
-              icon="Bell"
-              className="relative"
-            >
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-            </Button>
-
-            {/* Messages */}
-            <Button
-              variant="ghost"
-              size="small"
-              icon="MessageCircle"
-            />
-
             {/* Create Post */}
             <Button
               variant="primary"
