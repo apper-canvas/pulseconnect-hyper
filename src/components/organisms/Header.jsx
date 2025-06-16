@@ -32,13 +32,12 @@ return (
           <div className="flex items-center space-x-8">
             <NavLink to="/feed" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                <ApperIcon name="Zap" size={20} className="text-white" />
+<ApperIcon name="Zap" size={20} className="text-white" />
               </div>
-              <span className="text-xl font-bold text-surface-900 font-display">
+              <span className="text-xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent font-display">
                 PulseConnect
               </span>
             </NavLink>
-
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
               {navigationItems.map((item) => (
@@ -76,9 +75,9 @@ return (
               icon="Search"
               className="sm:hidden"
             />
-            {/* Create Post */}
+{/* Create Post */}
             <Button
-              variant="primary"
+              variant="prominent"
               size="small"
               icon="Plus"
               className="hidden sm:inline-flex"

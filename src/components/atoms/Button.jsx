@@ -15,13 +15,13 @@ const Button = ({
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
-  const variants = {
+const variants = {
     primary: 'bg-primary text-white hover:bg-primary/90 focus:ring-primary/50 shadow-sm',
     secondary: 'bg-surface-100 text-surface-700 hover:bg-surface-200 focus:ring-surface-500/50 border border-surface-300',
     ghost: 'text-surface-600 hover:text-primary hover:bg-surface-50 focus:ring-primary/50',
-    outline: 'border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary/50'
+    outline: 'border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary/50',
+    prominent: 'bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 focus:ring-primary/50 shadow-lg hover:shadow-xl transform hover:scale-105'
   };
-  
   const sizes = {
     small: 'px-3 py-1.5 text-sm',
     medium: 'px-4 py-2 text-sm',
