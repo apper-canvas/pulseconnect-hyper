@@ -5,30 +5,38 @@ import PostComposer from '@/components/organisms/PostComposer';
 import StoriesCarousel from '@/components/organisms/StoriesCarousel';
 import Sidebar from '@/components/organisms/Sidebar';
 import PostCard from '@/components/molecules/PostCard';
+import Avatar from '@/components/atoms/Avatar';
 import ApperIcon from '@/components/ApperIcon';
-import { postService } from '@/services';
+import { postService, userService } from '@/services';
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+  const [suggestedUsers, setSuggestedUsers] = useState([]);
+  const [activeUsers, setActiveUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadPosts = async () => {
+useEffect(() => {
+    const loadFeedData = async () => {
       setLoading(true);
       setError(null);
       try {
-        const postsData = await postService.getAll();
+        const [postsData, suggested, active] = await Promise.all([
+          postService.getAll(),
+          userService.getSuggestedUsers(),
+          userService.getActiveUsers()
+        ]);
         setPosts(postsData);
+        setSuggestedUsers(suggested);
+        setActiveUsers(active);
       } catch (err) {
-        setError(err.message || 'Failed to load posts');
-        toast.error('Failed to load posts');
+        setError(err.message || 'Failed to load feed data');
+        toast.error('Failed to load feed data');
       } finally {
         setLoading(false);
       }
     };
 
-    loadPosts();
+    loadFeedData();
   }, []);
 
   const handlePostCreated = (newPost) => {
@@ -103,16 +111,28 @@ const Feed = () => {
     </motion.div>
   );
 
-return (
+const handleFollowUser = async (userId) => {
+    try {
+      await userService.followUser(userId);
+      toast.success('User followed successfully');
+      // Refresh suggested users
+      const suggested = await userService.getSuggestedUsers();
+      setSuggestedUsers(suggested);
+    } catch (err) {
+      toast.error('Failed to follow user');
+    }
+  };
+
+  return (
     <div className="min-h-screen bg-surface-50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
-          {/* Sidebar */}
+        <div className="grid grid-cols-1 xl:grid-cols-[280px_1fr_280px] gap-6 p-4 lg:p-6">
+          {/* Left Sidebar - Quick Stats + Trending */}
           <Sidebar />
           
-          {/* Main Content */}
+          {/* Main Content - Stories + Feed */}
           <main className="flex-1 min-h-screen">
-            <div className="max-w-feed mx-auto p-4 lg:p-6 pb-20 md:pb-6">
+            <div className="max-w-feed mx-auto pb-20 md:pb-6">
               <div className="space-y-6">
                 {/* Stories */}
                 <StoriesCarousel />
@@ -154,6 +174,82 @@ return (
               </div>
             </div>
           </main>
+
+          {/* Right Column - Suggested Users + Active Now */}
+          <aside className="hidden xl:block w-280 space-y-6">
+            {/* Suggested Users */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
+            >
+              <div className="flex items-center space-x-2 mb-4">
+                <ApperIcon name="Users" size={20} className="text-primary" />
+                <h3 className="font-semibold text-surface-900">Suggested for you</h3>
+              </div>
+
+              <div className="space-y-3">
+                {suggestedUsers.map((user) => (
+                  <div key={user.Id} className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <Avatar src={user.avatar} alt={user.displayName} size="small" />
+                      <div>
+                        <p className="text-sm font-medium text-surface-900">
+                          {user.displayName}
+                        </p>
+                        <p className="text-xs text-surface-500">
+                          @{user.username}
+                        </p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => handleFollowUser(user.Id)}
+                      className="text-xs font-medium text-primary hover:text-accent transition-colors"
+                    >
+                      Follow
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <button className="w-full mt-4 text-sm text-primary hover:text-accent font-medium transition-colors">
+                See all suggestions
+              </button>
+            </motion.div>
+
+            {/* Active Now */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-surface-200"
+            >
+              <div className="flex items-center space-x-2 mb-4">
+                <ApperIcon name="Circle" size={20} className="text-green-500" />
+                <h3 className="font-semibold text-surface-900">Active now</h3>
+              </div>
+
+              <div className="space-y-3">
+                {activeUsers.map((user) => (
+                  <div key={user.Id} className="flex items-center space-x-3">
+                    <div className="relative">
+                      <Avatar src={user.avatar} alt={user.displayName} size="small" />
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-surface-900">
+                        {user.displayName}
+                      </p>
+                      <p className="text-xs text-surface-500">
+                        Active now
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </aside>
         </div>
       </div>
     </div>

@@ -8,7 +8,9 @@
     "following": 892,
     "postsCount": 156,
     "verified": true,
-    "bio": "UI/UX Designer at TechCorp | Creating beautiful digital experiences ✨"
+    "bio": "UI/UX Designer at TechCorp | Creating beautiful digital experiences ✨",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:30:00Z"
   },
   {
     "Id": 2,
@@ -19,7 +21,9 @@
     "following": 654,
     "postsCount": 289,
     "verified": false,
-    "bio": "📸 Travel photographer | Capturing moments around the world"
+    "bio": "📸 Travel photographer | Capturing moments around the world",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:25:00Z"
   },
   {
     "Id": 3,
@@ -30,7 +34,9 @@
     "following": 1456,
     "postsCount": 234,
     "verified": false,
-    "bio": "✈️ Digital nomad | Currently in Bali | #Travel #Photography"
+    "bio": "✈️ Digital nomad | Currently in Bali | #Travel #Photography",
+    "isOnline": false,
+    "lastActive": "2024-01-15T09:45:00Z"
   },
   {
     "Id": 4,
@@ -41,7 +47,9 @@
     "following": 789,
     "postsCount": 178,
     "verified": true,
-    "bio": "💻 Full-stack developer | Building the future with code"
+    "bio": "💻 Full-stack developer | Building the future with code",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:35:00Z"
   },
   {
     "Id": 5,
@@ -52,6 +60,47 @@
     "following": 312,
     "postsCount": 67,
     "verified": false,
-    "bio": "Living my best life 🌟 | Coffee enthusiast ☕ | Adventure seeker"
+    "bio": "Living my best life 🌟 | Coffee enthusiast ☕ | Adventure seeker",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:40:00Z"
+  },
+  {
+    "Id": 6,
+    "username": "jessica_artist",
+    "displayName": "Jessica Lee",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+    "followers": 1567,
+    "following": 432,
+    "postsCount": 145,
+    "verified": false,
+    "bio": "🎨 Digital artist & illustrator | Creating magic with pixels",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:20:00Z"
+  },
+  {
+    "Id": 7,
+    "username": "david_chef",
+    "displayName": "David Kumar",
+    "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+    "followers": 2234,
+    "following": 678,
+    "postsCount": 189,
+    "verified": false,
+    "bio": "👨‍🍳 Chef & food blogger | Sharing culinary adventures",
+    "isOnline": false,
+    "lastActive": "2024-01-15T08:30:00Z"
+  },
+  {
+    "Id": 8,
+    "username": "lisa_fitness",
+    "displayName": "Lisa Garcia",
+    "avatar": "https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=400&h=400&fit=crop&crop=face",
+    "followers": 3789,
+    "following": 523,
+    "postsCount": 267,
+    "verified": true,
+    "bio": "💪 Fitness coach | Helping you achieve your goals | #FitLife",
+    "isOnline": true,
+    "lastActive": "2024-01-15T10:15:00Z"
   }
 ]

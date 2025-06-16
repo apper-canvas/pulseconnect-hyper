@@ -79,6 +79,23 @@ class UserService {
     const deletedUser = this.users.splice(index, 1)[0];
     return { ...deletedUser };
   }
+async getSuggestedUsers() {
+    await delay(250);
+    const currentUser = await this.getCurrentUser();
+    return this.users
+      .filter(user => user.Id !== currentUser?.Id)
+      .slice(0, 4)
+      .map(user => ({ ...user }));
+  }
+
+  async getActiveUsers() {
+    await delay(200);
+    const currentUser = await this.getCurrentUser();
+    return this.users
+      .filter(user => user.Id !== currentUser?.Id && user.isOnline)
+      .slice(0, 6)
+      .map(user => ({ ...user }));
+  }
 
   async followUser(userId) {
     await delay(300);
